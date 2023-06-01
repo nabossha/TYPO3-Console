@@ -73,9 +73,10 @@ class FailedSubProcessCommandException extends \Exception
             $previousException = SubProcessException::createFromArray($previousExceptionData);
         }
         $exceptionMessage = sprintf(
-            'Executing command "%s" failed (exit code: "%d")',
+            'Executing command "%s" failed (exit code: "%d") ErrorMessage: %d',
             $command,
-            $exitCode
+            $exitCode,
+            $errorMessage
         );
         parent::__construct(
             $exceptionMessage,
